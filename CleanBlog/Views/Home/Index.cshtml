@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@await Html.PartialAsync("partial/Indexheader");
+
+@using CleanBlog.Models
+@model List<PostVM>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+
+            @foreach (var item in Model)
+            {
+                <div class="post-preview">
+                    <a href="post.html">
+                        <h2 class="post-title">
+                            @item.Title
+                        </h2>
+                    </a>
+                    <p class="post-meta">
+                        Posted by
+                        <a href="#">@item.UserName</a>
+                        @item.AddDate
+                    </p>
+
+                </div>
+            }
+
+
+
+            <hr>
+            <!-- Pager -->
+            <div class="clearfix">
+                <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
